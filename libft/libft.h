@@ -6,7 +6,7 @@
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:50:28 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/10 12:16:49 by mdegraeu         ###   ########lyon.fr   */
+/*   Updated: 2021/11/19 17:03:07 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 //LIST CHAIN
 typedef struct s_list
@@ -74,5 +75,16 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+//FROM PRINTF_PROJECT
+int		ft_printf(const char *format, ...);
+int		ft_char_nb(int nb, int base);
+int		ft_char_nb_u(unsigned int nb, int base);
+int		ft_char_nb_lu(unsigned long int nb, int base);
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+int		ft_putnbr(int nb);
+int		ft_putnbr_base(unsigned int nb, char *base);
+int		ft_putnbr_lu(unsigned long int nb);
 
 #endif

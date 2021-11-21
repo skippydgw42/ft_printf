@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_char_nb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 15:53:25 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/18 16:01:41 by mdegraeu         ###   ########lyon.fr   */
+/*   Created: 2021/11/19 15:25:35 by mdegraeu          #+#    #+#             */
+/*   Updated: 2021/11/19 16:46:39 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putstr(char *str)
+int	ft_char_nb(int nb, int base)
 {
-	unsigned int	i;
+	int	ct;
 
-	i = 0;
-	while (str[i])
+	ct = 0;
+	if (nb <= 0)
+		ct++;
+	while (nb)
 	{
-		ft_putchar(str[i]);
-		i++;
+		nb /= base;
+		ct++;
 	}
+	return (ct);
 }

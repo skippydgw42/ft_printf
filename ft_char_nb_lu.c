@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
+/*   ft_char_nb_lu.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 16:42:53 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/18 16:43:53 by mdegraeu         ###   ########lyon.fr   */
+/*   Created: 2021/11/19 15:38:32 by mdegraeu          #+#    #+#             */
+/*   Updated: 2021/11/19 16:49:05 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbr_u(unsigned int nb)
+int	ft_char_nb_lu(unsigned long int nb, int base)
 {
-	if (nb > 9)
+	int	ct;
+
+	ct = 0;
+	if (nb == 0)
+		ct++;
+	while (nb)
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		nb /= base;
+		ct++;
 	}
-	else
-		ft_putchar(nb + '0');
+	return (ct);
 }

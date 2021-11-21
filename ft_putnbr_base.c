@@ -6,22 +6,20 @@
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:55:05 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/18 16:58:04 by mdegraeu         ###   ########lyon.fr   */
+/*   Updated: 2021/11/19 16:51:46 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbr_base(unsigned int nb)
+int	ft_putnbr_base(unsigned int nb, char *base)
 {
-	char	*base;
-
-	base = "0123456789abcdef";
-	if (nb > 16)
+	if (nb >= ft_strlen(base))
 	{
-		ft_putnbr_base(nb / 16);
-		ft_putnbr_base(nb % 16);
+		ft_putnbr_base(nb / ft_strlen(base), base);
+		ft_putnbr_base(nb % ft_strlen(base), base);
 	}
 	else
 		ft_putchar(base[nb]);
+	return (ft_char_nb_u(nb, ft_strlen(base)));
 }
